@@ -3,7 +3,11 @@
 import re
 import sys
 import ConfigParser
-from mapnik import Style, Map, load_map 
+
+try:
+    from mapnik2 import Style, Map, load_map
+except ImportError:
+    from mapnik import Style, Map, load_map
 
 from ogcserver import common
 from ogcserver.wms111 import ServiceHandler as ServiceHandler111

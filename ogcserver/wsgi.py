@@ -10,8 +10,11 @@ import imp
 
 from cStringIO import StringIO
 
-import mapnik
-
+try:
+    import mapnik2 as mapnik
+except ImportError:
+    import mapnik
+    
 from ogcserver.common import Version
 from ogcserver.WMS import BaseWMSFactory
 from ogcserver.configparser import SafeConfigParser

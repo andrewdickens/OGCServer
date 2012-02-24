@@ -1,7 +1,10 @@
 """WMS 1.3.0 compliant GetCapabilities, GetMap, GetFeatureInfo, and Exceptions interface."""
 
-from mapnik import Coord
-
+try:
+    from mapnik2 import Coord
+except ImportError:
+    from mapnik import Coord
+    
 from lxml import etree as ElementTree
 
 from ogcserver.common import ParameterDefinition, Response, Version, ListFactory, \

@@ -8,8 +8,11 @@ from StringIO import StringIO
 from lxml import etree as ElementTree
 from traceback import format_exception, format_exception_only
 
-from mapnik import Map, Color, Envelope, render, Image, Layer, Style, Projection as MapnikProjection, Coord, mapnik_version
-
+try:
+    from mapnik2 import Map, Color, Box2d as Envelope, render, Image, Layer, Style, Projection as MapnikProjection, Coord, mapnik_version
+except ImportError:
+    from mapnik import Map, Color, Envelope, render, Image, Layer, Style, Projection as MapnikProjection, Coord, mapnik_version
+    
 try:
     from PIL.Image import new
     from PIL.ImageDraw import Draw
